@@ -21,6 +21,9 @@
             <h1>
                 Hello World
             </h1>
+            <h2>
+                ${eric}
+            </h2>
             <button class="btn btn-warning">Submit</button>
         </body>
 
