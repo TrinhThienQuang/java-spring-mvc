@@ -9,8 +9,10 @@ import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UserService;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class UserController {
@@ -33,6 +35,12 @@ public class UserController {
     public String getUserPage(Model model) {
         model.addAttribute("newUser", new User());
         return "admin/user/create";
+    }
+
+    @RequestMapping("/admin/user/{id}")
+    public String getUserDetailPage(Model model, @PathVariable long id) {
+        model.addAttribute("id", id);
+        return "/admin/user/show";
     }
 
     @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
