@@ -6,7 +6,7 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>User Detail ${id}</title>
+                <title>Delete User ${id}</title>
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
                 <!-- Latest compiled JavaScript -->
@@ -20,20 +20,19 @@
                     <div class="row">
                         <div class="col-12 mx-auto">
                             <div class="d-flex justify-content-between">
-                                <h3>User Detail with id = ${id}</h3>
+                                <h3>Delete User with id = ${id}</h3>
                             </div>
                             <hr />
-
-                            <div class="card" style="width: 60%">
-                                <div class="card-header">User Information</div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">ID: ${id}</li>
-                                    <li class="list-group-item">Email: ${account.email}</li>
-                                    <li class="list-group-item">FullName: ${account.fullName}</li>
-                                    <li class="list-group-item">Address: ${account.address}</li>
-                                </ul>
+                            <div class="alert alert-danger" role="alert">
+                                Are you sure to delete this user ?
                             </div>
-                            <a href="/admin/user" class="btn btn-success mt-3">Back</a>
+                            <form:form method="post" action="/admin/user/delete" modelAttribute="newUser">
+                                <div class="mb-3" style="display: none;">
+                                    <label class="form-label">ID</label>
+                                    <form:input value="${id}" type="text" class="form-control" path="id" />
+                                </div>
+                                <button class="btn btn-danger mt-2">Confirm</button>
+                            </form:form>
                         </div>
                     </div>
                 </div>
